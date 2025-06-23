@@ -2259,3 +2259,87 @@ svg {
         font-size: 0.8rem;
     }
 }
+
+section, article {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-up {
+  transform: translateY(20px);
+}
+
+.fade-left {
+  transform: translateX(-20px);
+}
+
+.fade-right {
+  transform: translateX(20px);
+}
+
+.zoom-in {
+  transform: scale(0.9);
+}
+
+.animate.fade-up,
+.animate.fade-left,
+.animate.fade-right,
+.animate.zoom-in {
+  transform: none;
+  opacity: 1;
+}
+/* Hover animation for input fields and textarea */
+.input-field {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.input-field:hover,
+.input-field:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(98, 0, 234, 0.5);
+  outline: none;
+}
+
+/* Button hover animation */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #7b2ff7;
+  transform: scale(1.05);
+}
+
+/* Loading animation */
+.btn.loading {
+  pointer-events: none;
+  background-color: #ccc;
+}
+
+.btn.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

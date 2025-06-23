@@ -136,39 +136,11 @@
                              <i class="ri-send-plane-line"></i> Resume</a>
                         </div>
 
-
-                    <!-- <div class="about__buttons">
-                        <a href="#contact" class="button">
-                            <i class="ri-send-plane-line"></i> resume
-                        </a> -->
-
-                        <!-- <a href="https://www.linkedin.com/" target="_blank" class="button__ghost">
-                            <i class="ri-linkedin-box-line"></i>
-                        </a> -->
                     </div>
                 </div>
             </div>
         </section>
 
-         <!-- 
-        - #CTA
-      -->
-
-      <!-- <section class="section cta" aria-label="work with me">
-        <div class="container">
-
-          <h2 class="title h2 section-title text-center">
-            Let's Work Together On Your Next Project!
-          </h2>
-
-          <a href="#contact" class="btn btn:hover">
-            <span class="span">Hire Me Now</span>
-
-            <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-          </a>
-
-        </div>
-      </section> -->
 
         <br>
      <!--==================== SKILLS ====================-->
@@ -281,39 +253,6 @@
                 </div>
             </div>
         </div>
-
-        <!--==================== QUALIFICATION 2 ====================-->
-        <!-- <div class="qualification__content">
-            <h3 class="qualification__title">
-                <i class="ri-building-line"></i> Work
-            </h3>
-
-            <div class="qualification__info">
-                <div>
-                    <h3 class="qualification__name">
-                        Fontend Developer
-                    </h3>
-                    <span class="qualification__country">Adobe - Spain</span>
-                    <span class="qualification__year">2014 - 2019</span>
-                </div>
-
-                <div>
-                    <h3 class="qualification__name">
-                        Software Engineer
-                    </h3>
-                    <span class="qualification__country">Microsoft - Perú</span>
-                    <span class="qualification__year">2018 - 2020</span>
-                </div>
-
-                <div>
-                    <h3 class="qualification__name">
-                        Graphic Designer
-                    </h3>
-                    <span class="qualification__country">Figma - Perú</span>
-                    <span class="qualification__year">2020 - Present</span>
-                </div>
-            </div>
-        </div> -->
     </div>
 
     
@@ -331,19 +270,6 @@
     </h2>
 
     <div class="projects__container container grid">
-       <!-- <article class="projects__card">
-          <img src="/Ass/project-1.jpg" alt="projects image" class="projects__img">
-
-          <div class="projects__modal">
-             <span class="projects__subtitle">Web</span>
-
-             <h2 class="projects__title">Modern website</h2>
-
-             <a href="resto-web-app.netlify.app" class="projects__button">
-                View demo 
-             </a>
-          </div>
-       </article> -->
 
        <article class="projects__card" style="position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.15);">
              <img src="/Ass/resto.png" alt="Modern Website Project" class="projects__img" style="width: 100%; height: auto; display: block;">
@@ -410,12 +336,8 @@
              🔗 View project </a>
              </div>
         </article>
-
-
     </div>
  </section>
-
-
         <!-- 
         - #CONTACT
       -->
@@ -461,11 +383,13 @@
                                     alt="contact icon">
                             </div>
 
-                            <div>
+                            <!-- <div>
                                 <span class="title h6">9488311749</span>
-
-                                
-                            </div>
+                            </div> -->
+                            <div>
+                             <a href="tel:9488311749" class="btn" style="text-decoration: none; display: inline-block; padding: 0.5rem 1rem; color: white; border-radius: 5px;">
+                                      📞 Call 9488311749  </a>
+</div>
 
                         </li>
 
@@ -485,33 +409,20 @@
                         </li>
 
                         <li class="contact-item">
-
                             <div class="item-icon">
                                 <img src="/Ass/icons8-email-48.png" width="50" height="50" loading="lazy"
                                     alt="contact icon">
                             </div>
-
                             <div>
                                 <span class="title h6">sansaisansai2003@gmai.com</span>
-
-                                
                             </div>
-
                         </li>
-
                     </ul>
-
                 </div>
-
             </div>
         </section>
-
         </article>
     </main>
-
-
-
-
 
     <!-- 
     - #FOOTER
@@ -534,17 +445,9 @@
     </footer>
 
 
-    <!-- 
-    - ionicon link
-  -->
-    <!-- <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
- -->
-
 
     </main>
-<!--  -->
-    <!-- <script src="script.js"></script> -->
+
     <script>
         const closebtn = document.getElementById("nav-close")
         let navi = document.getElementById("nav-menu")
@@ -556,6 +459,34 @@
   toggle.addEventListener("click",function(){
     navi.style.display=""
   })
+
+  const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const animationType = entry.target.getAttribute('data-animate') || 'fade-up';
+      entry.target.classList.add('animate', animationType);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('section, article').forEach((el, index) => {
+  // Alternate animation types for variety
+  const animations = ['fade-up', 'fade-left', 'fade-right', 'zoom-in'];
+  el.setAttribute('data-animate', animations[index % animations.length]);
+  observer.observe(el);
+});
+
+
+const form = document.querySelector(".contact-form");
+const button = form.querySelector(".btn");
+
+form.addEventListener("submit", function (e) {
+  button.classList.add("loading");
+});
+
+
+
     </script>
 </body>
 
